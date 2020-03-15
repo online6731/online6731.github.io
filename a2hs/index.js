@@ -15,7 +15,7 @@ setInterval(function() {
 
 if('serviceWorker' in navigator) {
   navigator.serviceWorker
-           .register('/pwa-examples/a2hs/sw.js')
+           .register('/a2hs/sw.js')
            .then(function() { console.log('Service Worker Registered'); });
 }
 
@@ -27,25 +27,25 @@ addBtn.style.display = 'none';
 
 window.addEventListener('beforeinstallprompt', (e) => {
   // Prevent Chrome 67 and earlier from automatically showing the prompt
-  e.preventDefault();
+//   e.preventDefault();
   // Stash the event so it can be triggered later.
-  deferredPrompt = e;
+//   deferredPrompt = e;
   // Update UI to notify the user they can add to home screen
-  addBtn.style.display = 'block';
+//   addBtn.style.display = 'block';
 
-  addBtn.addEventListener('click', (e) => {
-    // hide our user interface that shows our A2HS button
-    addBtn.style.display = 'none';
-    // Show the prompt
-    deferredPrompt.prompt();
-    // Wait for the user to respond to the prompt
-    deferredPrompt.userChoice.then((choiceResult) => {
-        if (choiceResult.outcome === 'accepted') {
-          console.log('User accepted the A2HS prompt');
-        } else {
-          console.log('User dismissed the A2HS prompt');
-        }
-        deferredPrompt = null;
-      });
-  });
+//   addBtn.addEventListener('click', (e) => {
+//     // hide our user interface that shows our A2HS button
+//     addBtn.style.display = 'none';
+//     // Show the prompt
+//     deferredPrompt.prompt();
+//     // Wait for the user to respond to the prompt
+//     deferredPrompt.userChoice.then((choiceResult) => {
+//         if (choiceResult.outcome === 'accepted') {
+//           console.log('User accepted the A2HS prompt');
+//         } else {
+//           console.log('User dismissed the A2HS prompt');
+//         }
+//         deferredPrompt = null;
+//       });
+//   });
 });
